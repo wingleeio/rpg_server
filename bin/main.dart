@@ -5,7 +5,6 @@ import 'package:socket_io/socket_io.dart';
 Map players = {};
 
 double speed = 150.0;
-bool stateChanged = false;
 
 var sprites = [
   "demon_swordsman.png",
@@ -33,32 +32,24 @@ void main() {
     players[client.id]["direction"] = "Direction.down";
     players[client.id]["sprite"] = sprites[Random().nextInt(sprites.length - 1)];
     
-    client.emit("initializePlayers", players);
-
-    client.broadcast.emit("playerJoined", players[client.id]);
-
     client.on("moveLeft", (data) {
       players[client.id]["isMovingLeft"] = data["isMoving"];
       players[client.id]["direction"] = data["direction"];
-      stateChanged = true;
     });
 
     client.on("moveRight", (data) {
       players[client.id]["isMovingRight"] = data["isMoving"];
       players[client.id]["direction"] = data["direction"];
-      stateChanged = true;
     });
 
     client.on("moveUp", (data) {
       players[client.id]["isMovingUp"] = data["isMoving"];
       players[client.id]["direction"] = data["direction"];
-      stateChanged = true;
     });
 
     client.on("moveDown", (data) {
       players[client.id]["isMovingDown"] = data["isMoving"];
       players[client.id]["direction"] = data["direction"];
-      stateChanged = true;
     });
 
     client.on("disconnect", (reason) {
@@ -84,32 +75,24 @@ void main() {
       if (player["isMovingUp"]) {
         players[id]["x"] += 0;
         players[id]["y"] += dt * -speed;
-        stateChanged = true;
       }
 
       if (player["isMovingDown"]) {
         players[id]["x"] += 0;
         players[id]["y"] += dt * speed;
-        stateChanged = true;
       }
 
       if (player["isMovingLeft"]) {
         players[id]["x"] += dt * -speed;
         players[id]["y"] += 0;
-        stateChanged = true;
       }
 
       if (player["isMovingRight"]) {
         players[id]["x"] += dt * speed;
         players[id]["y"] += 0;
-        stateChanged = true;
       }
     });
 
-    if(stateChanged) {
-      io.emit("playersUpdated", players);
-    }
-
-    stateChanged = false;
+    io.emit("playersUpdated", players);
   });
 }
