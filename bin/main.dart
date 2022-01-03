@@ -74,29 +74,36 @@ void main() {
     currentTime = DateTime.now().millisecondsSinceEpoch.toDouble();
     double dt = (currentTime - lastTime) / 1000;
     lastTime = currentTime;
+    bool stateChanged = false;
 
     players.forEach((id, player) {
       if (player["isMovingUp"]) {
         players[id]["x"] += 0;
         players[id]["y"] += dt * -speed;
+        stateChanged = true;
       }
 
       if (player["isMovingDown"]) {
         players[id]["x"] += 0;
         players[id]["y"] += dt * speed;
+        stateChanged = true;
       }
 
       if (player["isMovingLeft"]) {
         players[id]["x"] += dt * -speed;
         players[id]["y"] += 0;
+        stateChanged = true;
       }
 
       if (player["isMovingRight"]) {
         players[id]["x"] += dt * speed;
         players[id]["y"] += 0;
+        stateChanged = true;
       }
     });
 
-    io.emit("playersUpdated", players);
+    if(stateChanged) {
+      io.emit("playersUpdated", players);
+    }
   });
 }
