@@ -224,6 +224,12 @@
       "languageVersion": "2.14"
     },
     {
+      "name": "lints",
+      "rootUri": "file:///Users/wing/.pub-cache/hosted/pub.dartlang.org/lints-1.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "logging",
       "rootUri": "file:///Users/wing/.pub-cache/hosted/pub.dartlang.org/logging-1.0.2",
       "packageUri": "lib/",
@@ -410,7 +416,7 @@
       "languageVersion": "2.15"
     }
   ],
-  "generated": "2022-01-03T16:17:58.425777Z",
+  "generated": "2022-01-03T21:50:59.628863Z",
   "generator": "pub",
-  "generatorVersion": "2.16.0-134.0.dev"
+  "generatorVersion": "2.15.1"
 }

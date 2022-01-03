@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+message Player {
+    string id = 1;
+    bool isMovingLeft = 2;
+    bool isMovingRight = 3;
+    bool isMovingUp = 4;
+    bool isMovingDown = 5;
+    int32 x = 6;
+    int32 y = 7;
+    string direction = 8;
+    string sprite = 9;
+}
+
+message PlayerState {
+    int32 time = 1;
+    repeated Player players = 2;
+}
