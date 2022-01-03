@@ -33,7 +33,7 @@ void main() {
     players[client.id]["direction"] = "Direction.down";
     players[client.id]["sprite"] = sprites[Random().nextInt(sprites.length - 1)];
     
-    client.emit('initializePlayers', players);
+    client.emit("playersUpdated", players);
 
     client.broadcast.emit("playerJoined", players[client.id]);
 
