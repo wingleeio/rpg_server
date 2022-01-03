@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import '../utils/constants.dart';
+import '../utils/globals.dart';
 
 void connection(client) {
   players[client.id] = {};

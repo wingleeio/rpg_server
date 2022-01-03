@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:socket_io/socket_io.dart';
 
-import '../utils/constants.dart';
+import '../utils/globals.dart';
 
 void startGame(Server io) {
   double lastTime = 0.0;
