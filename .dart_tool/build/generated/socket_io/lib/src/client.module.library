@@ -1,0 +1,1 @@
+{"isEntrypoint":false,"deps":["logging|lib/logging.dart","socket_io|lib/src/engine/socket.dart","socket_io_common|lib/src/parser/parser.dart","socket_io|lib/src/server.dart"],"parts":[],"conditionalDeps":[],"sdkDeps":[],"hasMain":false}

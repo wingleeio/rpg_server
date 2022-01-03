@@ -1,0 +1,1 @@
+{"isEntrypoint":false,"deps":["logging|lib/logging.dart","socket_io|lib/src/engine/connect.dart","socket_io|lib/src/engine/engine.dart","socket_io|lib/src/engine/socket.dart","socket_io|lib/src/engine/transport/transports.dart","stream|lib/stream.dart","uuid|lib/uuid.dart"],"parts":[],"conditionalDeps":[],"sdkDeps":["convert","io"],"hasMain":false}

@@ -1,0 +1,1 @@
+{"isEntrypoint":true,"deps":["rikulo_commons|lib/util.dart"],"parts":[],"conditionalDeps":[],"sdkDeps":["html"],"hasMain":false}

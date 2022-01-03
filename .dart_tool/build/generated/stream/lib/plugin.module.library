@@ -1,0 +1,1 @@
+{"isEntrypoint":true,"deps":["path|lib/path.dart","charcode|lib/ascii.dart","rikulo_commons|lib/util.dart","rikulo_commons|lib/io.dart","stream|lib/stream.dart"],"parts":["stream|lib/src/plugin/router.dart","stream|lib/src/plugin/loader.dart","stream|lib/src/plugin/loader_impl.dart"],"conditionalDeps":[],"sdkDeps":["async","io","collection"],"hasMain":false}

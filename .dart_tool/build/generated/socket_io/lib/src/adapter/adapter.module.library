@@ -1,0 +1,1 @@
+{"isEntrypoint":false,"deps":["socket_io|lib/src/namespace.dart","socket_io_common|lib/src/parser/parser.dart","socket_io|lib/src/util/event_emitter.dart"],"parts":[],"conditionalDeps":[],"sdkDeps":["async"],"hasMain":false}

@@ -1,0 +1,1 @@
+{"isEntrypoint":true,"deps":[],"parts":["rikulo_commons|lib/src/mirrors/classes.dart","rikulo_commons|lib/src/mirrors/objects.dart","rikulo_commons|lib/src/mirrors/error.dart"],"conditionalDeps":[],"sdkDeps":["mirrors","collection"],"hasMain":false}

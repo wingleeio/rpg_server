@@ -1,0 +1,1 @@
+{"isEntrypoint":true,"deps":["rikulo_commons|lib/util.dart","rikulo_commons|lib/src/async/defer.dart"],"parts":["rikulo_commons|lib/src/async/stream_provider.dart","rikulo_commons|lib/src/async/stream_wrapper.dart","rikulo_commons|lib/src/async/streams.dart"],"conditionalDeps":[],"sdkDeps":["async"],"hasMain":false}
