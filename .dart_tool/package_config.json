@@ -140,8 +140,20 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "dart_native_compression",
+      "rootUri": "file:///Users/wing/.pub-cache/hosted/pub.dartlang.org/dart_native_compression-1.1.0+3",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "dart_style",
       "rootUri": "file:///Users/wing/.pub-cache/hosted/pub.dartlang.org/dart_style-2.2.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "ffi",
+      "rootUri": "file:///Users/wing/.pub-cache/hosted/pub.dartlang.org/ffi-1.1.2",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -201,9 +213,9 @@
     },
     {
       "name": "js",
-      "rootUri": "file:///Users/wing/.pub-cache/hosted/pub.dartlang.org/js-0.6.4",
+      "rootUri": "file:///Users/wing/.pub-cache/hosted/pub.dartlang.org/js-0.6.3",
       "packageUri": "lib/",
-      "languageVersion": "2.16"
+      "languageVersion": "2.12"
     },
     {
       "name": "json_annotation",
@@ -398,7 +410,7 @@
       "languageVersion": "2.15"
     }
   ],
-  "generated": "2022-01-03T03:55:20.666999Z",
+  "generated": "2022-01-03T16:17:58.425777Z",
   "generator": "pub",
   "generatorVersion": "2.16.0-134.0.dev"
 }

@@ -1,6 +1,11 @@
+import 'dart:io';
 import 'dart:async';
 import 'dart:math';
+import 'dart:ffi';
+import 'dart:convert';
+import 'dart:typed_data';
 import 'package:socket_io/socket_io.dart';
+import 'package:dart_native_compression/dart_native_compression.dart';
 
 Map players = {};
 
@@ -23,33 +28,33 @@ void main() {
   io.on('connection', (client) {
     players[client.id] = {};
     players[client.id]["id"] = client.id;
-    players[client.id]["isMovingLeft"] = false;
-    players[client.id]["isMovingRight"] = false;
-    players[client.id]["isMovingUp"] = false;
-    players[client.id]["isMovingDown"] = false;
+    players[client.id]["IML"] = false;
+    players[client.id]["IMR"] = false;
+    players[client.id]["IMU"] = false;
+    players[client.id]["IMD"] = false;
     players[client.id]["x"] = 50;
     players[client.id]["y"] = 50;
-    players[client.id]["direction"] = "Direction.down";
-    players[client.id]["sprite"] = sprites[Random().nextInt(sprites.length - 1)];
+    players[client.id]["D"] = "Direction.down";
+    players[client.id]["S"] = sprites[Random().nextInt(sprites.length - 1)];
     
     client.on("moveLeft", (data) {
-      players[client.id]["isMovingLeft"] = data["isMoving"];
-      players[client.id]["direction"] = data["direction"];
+      players[client.id]["IML"] = data["isMoving"];
+      players[client.id]["D"] = data["direction"];
     });
 
     client.on("moveRight", (data) {
-      players[client.id]["isMovingRight"] = data["isMoving"];
-      players[client.id]["direction"] = data["direction"];
+      players[client.id]["IMR"] = data["isMoving"];
+      players[client.id]["D"] = data["direction"];
     });
 
     client.on("moveUp", (data) {
-      players[client.id]["isMovingUp"] = data["isMoving"];
-      players[client.id]["direction"] = data["direction"];
+      players[client.id]["IMU"] = data["isMoving"];
+      players[client.id]["D"] = data["direction"];
     });
 
     client.on("moveDown", (data) {
-      players[client.id]["isMovingDown"] = data["isMoving"];
-      players[client.id]["direction"] = data["direction"];
+      players[client.id]["IMD"] = data["isMoving"];
+      players[client.id]["D"] = data["direction"];
     });
 
     client.on("disconnect", (reason) {
@@ -72,22 +77,22 @@ void main() {
     lastTime = currentTime;
 
     players.forEach((id, player) {
-      if (player["isMovingUp"]) {
+      if (player["IMU"]) {
         players[id]["x"] += 0;
         players[id]["y"] += dt * -speed;
       }
 
-      if (player["isMovingDown"]) {
+      if (player["IMD"]) {
         players[id]["x"] += 0;
         players[id]["y"] += dt * speed;
       }
 
-      if (player["isMovingLeft"]) {
+      if (player["IML"]) {
         players[id]["x"] += dt * -speed;
         players[id]["y"] += 0;
       }
 
-      if (player["isMovingRight"]) {
+      if (player["IMR"]) {
         players[id]["x"] += dt * speed;
         players[id]["y"] += 0;
       }
