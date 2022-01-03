@@ -1,9 +1,21 @@
 import 'dart:async';
+import 'dart:math';
 import 'package:socket_io/socket_io.dart';
 
 Map players = {};
 
 double speed = 150.0;
+
+var sprites = [
+  "demon_swordsman.png",
+  "great_sage.png",
+  "high_priest.png",
+  "mercenary.png",
+  "monster_whisperer.png",
+  "queen_dragoon.png",
+  "time_witch.png",
+  "wolf_bard.png",
+];
 
 void main() {
   var io = new Server();
@@ -18,6 +30,7 @@ void main() {
     players[client.id]["x"] = 50;
     players[client.id]["y"] = 50;
     players[client.id]["direction"] = "Direction.down";
+    players[client.id]["sprite"] = sprites[Random().nextInt(sprites.length - 1)];
     
     client.emit('initializePlayers', players);
 
