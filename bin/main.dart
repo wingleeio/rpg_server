@@ -5,6 +5,7 @@ import 'package:socket_io/socket_io.dart';
 Map players = {};
 
 double speed = 150.0;
+bool stateChanged = false;
 
 var sprites = [
   "demon_swordsman.png",
@@ -39,21 +40,25 @@ void main() {
     client.on("moveLeft", (data) {
       players[client.id]["isMovingLeft"] = data["isMoving"];
       players[client.id]["direction"] = data["direction"];
+      stateChanged = true;
     });
 
     client.on("moveRight", (data) {
       players[client.id]["isMovingRight"] = data["isMoving"];
       players[client.id]["direction"] = data["direction"];
+      stateChanged = true;
     });
 
     client.on("moveUp", (data) {
       players[client.id]["isMovingUp"] = data["isMoving"];
       players[client.id]["direction"] = data["direction"];
+      stateChanged = true;
     });
 
     client.on("moveDown", (data) {
       players[client.id]["isMovingDown"] = data["isMoving"];
       players[client.id]["direction"] = data["direction"];
+      stateChanged = true;
     });
 
     client.on("disconnect", (reason) {
@@ -74,7 +79,6 @@ void main() {
     currentTime = DateTime.now().millisecondsSinceEpoch.toDouble();
     double dt = (currentTime - lastTime) / 1000;
     lastTime = currentTime;
-    bool stateChanged = false;
 
     players.forEach((id, player) {
       if (player["isMovingUp"]) {
@@ -105,5 +109,7 @@ void main() {
     if(stateChanged) {
       io.emit("playersUpdated", players);
     }
+
+    stateChanged = false;
   });
 }
