@@ -1,10 +1,9 @@
 import 'dart:async';
 
-import 'package:socket_io/socket_io.dart';
-
+import '../entities/players.dart';
 import '../utils/globals.dart';
 
-void startGame(Server io) {
+void startGame() {
   double lastTime = 0.0;
   double currentTime = 0.0;
 
@@ -35,9 +34,9 @@ void startGame(Server io) {
       }
     });
 
-    io.emit("playersUpdated", {
-      "T": DateTime.now().millisecondsSinceEpoch,
-      "P": players,
-    });
+    final playerState =
+        encodePlayerState(DateTime.now().millisecondsSinceEpoch);
+
+    io.emit("playersUpdated", playerState.writeToBuffer());
   });
 }

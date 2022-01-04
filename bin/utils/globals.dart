@@ -1,3 +1,7 @@
+import 'package:socket_io/socket_io.dart';
+
+late final Server io;
+
 Map players = {};
 
 double speed = 150.0;

@@ -7,6 +7,7 @@
 
 import 'dart:core' as $core;
 
+import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
 class Player extends $pb.GeneratedMessage {
@@ -16,8 +17,8 @@ class Player extends $pb.GeneratedMessage {
     ..aOB(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'isMovingRight', protoName: 'isMovingRight')
     ..aOB(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'isMovingUp', protoName: 'isMovingUp')
     ..aOB(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'isMovingDown', protoName: 'isMovingDown')
-    ..a<$core.int>(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'x', $pb.PbFieldType.O3)
-    ..a<$core.int>(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'y', $pb.PbFieldType.O3)
+    ..a<$core.double>(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'x', $pb.PbFieldType.OD)
+    ..a<$core.double>(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'y', $pb.PbFieldType.OD)
     ..aOS(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'direction')
     ..aOS(9, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'sprite')
     ..hasRequiredFields = false
@@ -30,8 +31,8 @@ class Player extends $pb.GeneratedMessage {
     $core.bool? isMovingRight,
     $core.bool? isMovingUp,
     $core.bool? isMovingDown,
-    $core.int? x,
-    $core.int? y,
+    $core.double? x,
+    $core.double? y,
     $core.String? direction,
     $core.String? sprite,
   }) {
@@ -132,18 +133,18 @@ class Player extends $pb.GeneratedMessage {
   void clearIsMovingDown() => clearField(5);
 
   @$pb.TagNumber(6)
-  $core.int get x => $_getIZ(5);
+  $core.double get x => $_getN(5);
   @$pb.TagNumber(6)
-  set x($core.int v) { $_setSignedInt32(5, v); }
+  set x($core.double v) { $_setDouble(5, v); }
   @$pb.TagNumber(6)
   $core.bool hasX() => $_has(5);
   @$pb.TagNumber(6)
   void clearX() => clearField(6);
 
   @$pb.TagNumber(7)
-  $core.int get y => $_getIZ(6);
+  $core.double get y => $_getN(6);
   @$pb.TagNumber(7)
-  set y($core.int v) { $_setSignedInt32(6, v); }
+  set y($core.double v) { $_setDouble(6, v); }
   @$pb.TagNumber(7)
   $core.bool hasY() => $_has(6);
   @$pb.TagNumber(7)
@@ -170,14 +171,14 @@ class Player extends $pb.GeneratedMessage {
 
 class PlayerState extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'PlayerState', createEmptyInstance: create)
-    ..a<$core.int>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'time', $pb.PbFieldType.O3)
+    ..aInt64(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'time')
     ..pc<Player>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'players', $pb.PbFieldType.PM, subBuilder: Player.create)
     ..hasRequiredFields = false
   ;
 
   PlayerState._() : super();
   factory PlayerState({
-    $core.int? time,
+    $fixnum.Int64? time,
     $core.Iterable<Player>? players,
   }) {
     final _result = create();
@@ -211,9 +212,9 @@ class PlayerState extends $pb.GeneratedMessage {
   static PlayerState? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get time => $_getIZ(0);
+  $fixnum.Int64 get time => $_getI64(0);
   @$pb.TagNumber(1)
-  set time($core.int v) { $_setSignedInt32(0, v); }
+  set time($fixnum.Int64 v) { $_setInt64(0, v); }
   @$pb.TagNumber(1)
   $core.bool hasTime() => $_has(0);
   @$pb.TagNumber(1)
