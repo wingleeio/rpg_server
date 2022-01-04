@@ -7,7 +7,7 @@ void startGame() {
   double lastTime = 0.0;
   double currentTime = 0.0;
 
-  Timer.periodic(Duration(microseconds: ((1000 / 5) * 1000).toInt()), (timer) {
+  Timer.periodic(Duration(microseconds: ((1000 / 10) * 1000).toInt()), (timer) {
     currentTime = DateTime.now().millisecondsSinceEpoch.toDouble();
     double dt = (currentTime - lastTime) / 1000;
     lastTime = currentTime;
